@@ -345,3 +345,10 @@ Send a struct: `{int id; int value;}`
 
 ## Mutex around a shared peripheral
 Make two tasks write to the same log message format (simulate “shared UART resource”) and guard it with a mutex.
+
+## Results  
+--
+### Labs codes running
+ 
+[Enlace directo](https://www.youtube.com/shorts/ftHwrYJfghY)
+[Enlace directo](https://www.youtube.com/watch?v=DpbRrV5CJyA)
