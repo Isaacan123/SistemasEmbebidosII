@@ -1,0 +1,1663 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Lab02/">
+      
+      
+        <link rel="next" href="../comandos/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>LAB 03 - Plantilla para Documentación</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-03" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Plantilla para Documentación" class="md-header__button md-logo" aria-label="Plantilla para Documentación" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Plantilla para Documentación
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LAB 03
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Plantilla para Documentación" class="md-nav__button md-logo" aria-label="Plantilla para Documentación" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Plantilla para Documentación
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentación del Proyecto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 01 – FreeRTOS Task Creation and Scheduling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 02 – FreeRTOS Multi-Tasking: Queues, Mutexes and Structs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LAB 03
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LAB 03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#team" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Team
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-activity-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) Activity Goals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) Materials
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) Procedure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3) Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-1-general-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code 1: General code
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comandos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Encabezados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ejemplo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Ejemplo de Documentación del Proyecto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitcmds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚀 Comandos básicos de Git (primeros pasos)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#team" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Team
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-activity-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) Activity Goals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) Materials
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) Procedure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3) Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-1-general-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code 1: General code
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lab-03">LAB 03</h1>
+<h2 id="team">Team</h2>
+<p>Yahir Gil Mendoza</p>
+<p>Isaac Antonio Perez Aleman</p>
+<p>Pablo Eduardo López Manzano</p>
+<h2 id="1-activity-goals">1) Activity Goals</h2>
+<ul>
+<li>
+<p>Understand the Embedded Server: Set up and manage the lightweight esp_http_server within the ESP-IDF environment.</p>
+</li>
+<li>
+<p>Configure URI Handlers: Register and map specific API routes for HTML interfaces and /api/led for JSON endpoints to their corresponding C functions.</p>
+</li>
+<li>
+<p>Process HTTP Requests: Successfully read and parse incoming request bodie, particularly extracting JSON data from POST requests to control device hardware in this case a led.</p>
+</li>
+<li>
+<p>Manage HTTP Headers: Assign appropriate Content-Type to server responses to ensure browsers correctly interpret them as text/html or application/json.</p>
+</li>
+</ul>
+<h2 id="2-materials">2) Materials</h2>
+<ul>
+<li>ESP32‑C6 with USB‑C cable (data-capable)</li>
+<li>LED + 330 Ω resistor + jumper wires</li>
+<li>protoboard</li>
+<li>Motor DC</li>
+</ul>
+<h2 id="3-procedure">3) Procedure</h2>
+<ul>
+<li>First: we use the code given by the teacher, for follow how is the program, html and the IP.</li>
+</ul>
+<h3 id="code-1-general-code">Code 1:  General code</h3>
+<p>/<em>
+ * LAB 3 — ESP32-C6 Wi-Fi + HTTP LED Control 
+ *
+ * Features:
+ *  - Wi-Fi STA connect + reconnect using events
+ *  - Wait for IP (WIFI_CONNECTED_BIT)
+ *  - Simple GPIO LED control (gpio_reset_pin + gpio_set_direction)
+ *  - HTTP server:
+ *      GET  /         -&gt; HTML UI
+ *      GET  /api/led  -&gt; JSON {"state":0|1}
+ *      POST /api/led  -&gt; JSON {"state":0|1} sets LED, returns {"ok":true}
+ *
+ </em>/
+// String handling and standard libraries</p>
+<h1 id="include">include <string.h></h1>
+<h1 id="include_1">include <stdio.h></h1>
+<h1 id="include_2">include <stdlib.h></h1>
+<p>// FreeRTOS and event groups</p>
+<h1 id="include-freertosfreertosh">include "freertos/FreeRTOS.h"</h1>
+<h1 id="include-freertosevent_groupsh">include "freertos/event_groups.h"</h1>
+<p>// ESP-IDF Logging and error handling</p>
+<h1 id="include-esp_logh">include "esp_log.h"</h1>
+<h1 id="include-esp_errh">include "esp_err.h"</h1>
+<p>// Wi-Fi and network</p>
+<h1 id="include-nvs_flashh">include "nvs_flash.h"</h1>
+<h1 id="include-esp_netifh">include "esp_netif.h"</h1>
+<h1 id="include-esp_eventh">include "esp_event.h"</h1>
+<h1 id="include-esp_wifih">include "esp_wifi.h"</h1>
+<p>// GPIO control</p>
+<h1 id="include-drivergpioh">include "driver/gpio.h"</h1>
+<p>// HTTP server</p>
+<h1 id="include-esp_http_serverh">include "esp_http_server.h"</h1>
+<p>/<em> ===================== User config ===================== </em>/</p>
+<h1 id="define-wifi_ssid-ssid_here">define WIFI_SSID "SSID_HERE"</h1>
+<h1 id="define-wifi_pass-pass_here">define WIFI_PASS "PASS_HERE"</h1>
+<p>/<em> LED pin </em>/</p>
+<h1 id="define-led_gpio-8">define LED_GPIO  8</h1>
+<p>/<em> Reconnect policy </em>/</p>
+<h1 id="define-max_retry-10">define MAX_RETRY 10</h1>
+<p>/<em> ===================== Globals ===================== </em>/
+static const char *TAG = "LAB_3";</p>
+<p>// Wi-Fi event group and bit seen in Lab 2
+static EventGroupHandle_t s_wifi_event_group;</p>
+<h1 id="define-wifi_connected_bit-bit0">define WIFI_CONNECTED_BIT BIT0</h1>
+<p>static int s_retry = 0;// Retry count for Wi-Fi reconnects</p>
+<p>static int s_led_state = 0;               // 0=OFF, 1=ON
+static httpd_handle_t s_server = NULL;    // HTTP server handle</p>
+<p>/<em> ===================== LED helpers ===================== </em>/
+static void led_init(void)
+{
+    gpio_reset_pin(LED_GPIO);
+    gpio_set_direction(LED_GPIO, GPIO_MODE_OUTPUT);</p>
+<div class="language-text highlight"><pre><span></span><code>s_led_state = 0;
+gpio_set_level(LED_GPIO, s_led_state);
+
+ESP_LOGI(TAG, &quot;LED initialized on GPIO %d (state=%d)&quot;, LED_GPIO, s_led_state);
+</code></pre></div>
+<p>}</p>
+<p>/<em>Function to set the LED from the state</em>/
+static void led_set(int on)
+{
+    s_led_state = (on != 0);
+    gpio_set_level(LED_GPIO, s_led_state);
+    ESP_LOGI(TAG, "LED set to %d", s_led_state);
+}</p>
+<p>/<em> ===================== HTTP handlers ===================== </em>/
+/<em>Remember, handlers are special functions that process HTTP requests and generate responses</em>/</p>
+<p>static esp_err_t api_led_get(httpd_req_t <em>req)
+{
+    /</em> resp is a buffer to hold the JSON response  text in this case our jason is
+       either {"state":0} or {"state":1} <em>/
+    char resp[32];
+    /</em>sprintf is a normal printf for strings, snprintf is safer because it 
+    limits the number of characters written to the buffer</p>
+<div class="language-text highlight"><pre><span></span><code>Here we build the JSON string with the current LED state. 
+*/
+snprintf(resp, sizeof(resp), &quot;{\&quot;state\&quot;:%d}&quot;, s_led_state);
+
+/* Tell the client (browser/Postman/etc.) that the payload is JSON.
+   This sets the HTTP header: Content-Type: application/json */
+httpd_resp_set_type(req, &quot;application/json&quot;);
+
+/* Send the response body to the client.
+   - &#39;resp&#39; is the payload
+   - HTTPD_RESP_USE_STRLEN tells ESP-IDF to compute the string length automatically
+     (it treats resp as a null-terminated C string). */
+httpd_resp_send(req, resp, HTTPD_RESP_USE_STRLEN);
+
+/* Return ESP_OK so the HTTP server knows the request was handled correctly. */
+return ESP_OK;
+</code></pre></div>
+<p>}</p>
+<p>static esp_err_t api_led_post(httpd_req_t *req)
+{
+    // Basic safety: reject empty or very large payloads
+    if (req-&gt;content_len &lt;= 0 || req-&gt;content_len &gt; 256) {
+        httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Invalid Content-Length");
+        return ESP_FAIL;
+    }</p>
+<div class="language-text highlight"><pre><span></span><code>char buf[257] = {0}; // +1 for null terminator
+int received = httpd_req_recv(req, buf, req-&gt;content_len);
+if (received &lt;= 0) {
+    httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, &quot;Empty body&quot;);
+    return ESP_FAIL;
+}
+buf[received] = &#39;\0&#39;;
+
+// Minimal parse: find &quot;state&quot;:&lt;number&gt;
+int state = -1;
+char *p = strstr(buf, &quot;\&quot;state\&quot;&quot;);
+if (p) {
+    p = strchr(p, &#39;:&#39;);
+    if (p) state = atoi(p + 1);
+}
+
+if (state != 0 &amp;&amp; state != 1) {
+    httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, &quot;state must be 0 or 1&quot;);
+    return ESP_FAIL;
+}
+
+led_set(state);
+
+httpd_resp_set_type(req, &quot;application/json&quot;);
+httpd_resp_sendstr(req, &quot;{\&quot;ok\&quot;:true}&quot;);
+return ESP_OK;
+</code></pre></div>
+<p>}</p>
+<p>static esp_err_t root_get_handler(httpd_req_t <em>req)
+{
+    // Readable inline HTML
+    static const char </em>INDEX_HTML =
+        "&lt;!doctype html&gt;\n"
+        "<html>\n"
+        "<head>\n"
+        "  <meta charset='utf-8'>\n"
+        "  <meta name='viewport' content='width=device-width, initial-scale=1'>\n"
+        "  <title>ESP32-C6 LED</title>\n"
+        "</head>\n"
+        "<body>\n"
+        "  <h2>ESP32-C6 LED Control</h2>\n"
+        "  <button onclick='setLed(1)'>ON</button>\n"
+        "  <button onclick='setLed(0)'>OFF</button>\n"
+        "  <p id='st'>State: ?</p>\n"
+        "\n"
+        "  <script>\n"
+        "    async function refresh(){\n"
+        "      const r = await fetch('/api/led');\n"
+        "      const j = await r.json();\n"
+        "      document.getElementById('st').innerText = 'State: ' + j.state;\n"
+        "    }\n"
+        "    async function setLed(v){\n"
+        "      await fetch('/api/led', {\n"
+        "        method: 'POST',\n"
+        "        headers: {'Content-Type':'application/json'},\n"
+        "        body: JSON.stringify({state:v})\n"
+        "      });\n"
+        "      refresh();\n"
+        "    }\n"
+        "    setInterval(refresh, 1000);\n"
+        "    refresh();\n"
+        "  </script>\n"
+        "</body>\n"
+        "</html>\n";</p>
+<div class="language-text highlight"><pre><span></span><code>httpd_resp_set_type(req, &quot;text/html&quot;);
+httpd_resp_send(req, INDEX_HTML, HTTPD_RESP_USE_STRLEN);
+return ESP_OK;
+</code></pre></div>
+<p>}</p>
+<p>static void http_server_start(void)
+{
+    httpd_config_t config = HTTPD_DEFAULT_CONFIG();
+    ESP_ERROR_CHECK(httpd_start(&amp;s_server, &amp;config));
+    ESP_LOGI(TAG, "HTTP server started");</p>
+<div class="language-text highlight"><pre><span></span><code>httpd_uri_t root = {
+    .uri      = &quot;/&quot;,
+    .method   = HTTP_GET,
+    .handler  = root_get_handler,
+    .user_ctx = NULL
+};
+
+httpd_uri_t led_get = {
+    .uri      = &quot;/api/led&quot;,
+    .method   = HTTP_GET,
+    .handler  = api_led_get,
+    .user_ctx = NULL
+};
+
+httpd_uri_t led_post = {
+    .uri      = &quot;/api/led&quot;,
+    .method   = HTTP_POST,
+    .handler  = api_led_post,
+    .user_ctx = NULL
+};
+
+ESP_ERROR_CHECK(httpd_register_uri_handler(s_server, &amp;root));
+ESP_ERROR_CHECK(httpd_register_uri_handler(s_server, &amp;led_get));
+ESP_ERROR_CHECK(httpd_register_uri_handler(s_server, &amp;led_post));
+
+ESP_LOGI(TAG, &quot;Routes registered: /  ,  GET/POST /api/led&quot;);
+</code></pre></div>
+<p>}</p>
+<p>/<em> ===================== Wi-Fi STA connect + events ===================== </em>/</p>
+<p>static void wifi_event_handler(void <em>arg,
+                               esp_event_base_t event_base,
+                               int32_t event_id,
+                               void </em>event_data)
+{
+    if (event_base == WIFI_EVENT &amp;&amp; event_id == WIFI_EVENT_STA_START) {
+        ESP_LOGI(TAG, "WIFI_EVENT_STA_START -&gt; esp_wifi_connect()");
+        ESP_ERROR_CHECK(esp_wifi_connect());
+        return;
+    }</p>
+<div class="language-text highlight"><pre><span></span><code>if (event_base == WIFI_EVENT &amp;&amp; event_id == WIFI_EVENT_STA_DISCONNECTED) {
+    if (s_retry &lt; MAX_RETRY) {
+        s_retry++;
+        ESP_LOGW(TAG, &quot;Disconnected. Retrying (%d/%d)...&quot;, s_retry, MAX_RETRY);
+        ESP_ERROR_CHECK(esp_wifi_connect());
+    } else {
+        ESP_LOGE(TAG, &quot;Failed to connect after %d retries.&quot;, MAX_RETRY);
+    }
+    return;
+}
+
+if (event_base == IP_EVENT &amp;&amp; event_id == IP_EVENT_STA_GOT_IP) {
+    ip_event_got_ip_t *event = (ip_event_got_ip_t *)event_data;
+    ESP_LOGI(TAG, &quot;Got IP: &quot; IPSTR, IP2STR(&amp;event-&gt;ip_info.ip));
+
+    s_retry = 0;
+    xEventGroupSetBits(s_wifi_event_group, WIFI_CONNECTED_BIT);
+    return;
+}
+</code></pre></div>
+<p>}</p>
+<p>static void wifi_init_sta(void)
+{
+    s_wifi_event_group = xEventGroupCreate();</p>
+<div class="language-text highlight"><pre><span></span><code>ESP_ERROR_CHECK(esp_netif_init());
+ESP_ERROR_CHECK(esp_event_loop_create_default());
+esp_netif_create_default_wifi_sta();
+
+wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+ESP_ERROR_CHECK(esp_wifi_init(&amp;cfg));
+
+ESP_ERROR_CHECK(esp_event_handler_register(WIFI_EVENT, ESP_EVENT_ANY_ID, &amp;wifi_event_handler, NULL));
+ESP_ERROR_CHECK(esp_event_handler_register(IP_EVENT, IP_EVENT_STA_GOT_IP, &amp;wifi_event_handler, NULL));
+
+wifi_config_t wifi_config = {0};
+strncpy((char *)wifi_config.sta.ssid, WIFI_SSID, sizeof(wifi_config.sta.ssid));
+strncpy((char *)wifi_config.sta.password, WIFI_PASS, sizeof(wifi_config.sta.password));
+
+ESP_LOGI(TAG, &quot;Configuring Wi-Fi STA: SSID=&#39;%s&#39;&quot;, WIFI_SSID);
+
+ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &amp;wifi_config));
+ESP_ERROR_CHECK(esp_wifi_start());
+</code></pre></div>
+<p>}</p>
+<p>/<em> ===================== app_main ===================== </em>/</p>
+<p>void app_main(void)
+{
+    ESP_LOGI(TAG, "Lab D start: Wi-Fi + HTTP + LED control.");</p>
+<div class="language-text highlight"><pre><span></span><code>// NVS init (required by Wi-Fi)
+esp_err_t ret = nvs_flash_init();
+if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+    ESP_ERROR_CHECK(nvs_flash_erase());
+    ESP_ERROR_CHECK(nvs_flash_init());
+} else {
+    ESP_ERROR_CHECK(ret);
+}
+
+// Connect to Wi-Fi (STA)
+wifi_init_sta();
+
+// Wait for &quot;got IP&quot; (connected)
+EventBits_t bits = xEventGroupWaitBits(
+    s_wifi_event_group,
+    WIFI_CONNECTED_BIT,
+    pdFALSE,
+    pdTRUE,
+    pdMS_TO_TICKS(30000)
+);
+
+if (!(bits &amp; WIFI_CONNECTED_BIT)) {
+    ESP_LOGE(TAG, &quot;Timeout waiting for Wi-Fi connection. Check SSID/PASS and 2.4 GHz.&quot;);
+    return;
+}
+
+// Start peripherals + HTTP
+led_init();
+http_server_start();
+
+ESP_LOGI(TAG, &quot;Open: http://&lt;ESP_IP&gt;/ from a device on the same network.&quot;);
+</code></pre></div>
+<p>}</p>
+<ul>
+<li>Second: We have to add in the code the second led and change the .html for add another button.</li>
+</ul>
+<h3 id="code-2-with-2-buttons-and-2-leds">Code 2: With 2 buttons and 2 leds</h3>
+<p>/<em>
+ * LAB 3 — ESP32-C6 Wi-Fi + HTTP LED Control 
+ </em>/</p>
+<h1 id="include_3">include <string.h></h1>
+<h1 id="include_4">include <stdio.h></h1>
+<h1 id="include-freertosfreertosh_1">include "freertos/FreeRTOS.h"</h1>
+<h1 id="include-freertosevent_groupsh_1">include "freertos/event_groups.h"</h1>
+<h1 id="include-esp_logh_1">include "esp_log.h"</h1>
+<h1 id="include-esp_errh_1">include "esp_err.h"</h1>
+<h1 id="include-nvs_flashh_1">include "nvs_flash.h"</h1>
+<h1 id="include-esp_netifh_1">include "esp_netif.h"</h1>
+<h1 id="include-esp_eventh_1">include "esp_event.h"</h1>
+<h1 id="include-esp_wifih_1">include "esp_wifi.h"</h1>
+<h1 id="include-drivergpioh_1">include "driver/gpio.h"</h1>
+<h1 id="include-esp_http_serverh_1">include "esp_http_server.h"</h1>
+<p>/<em> ===================== User config ===================== </em>/</p>
+<h1 id="define-wifi_ssid-iphone">define WIFI_SSID "iPhone"</h1>
+<h1 id="define-wifi_pass-12345678">define WIFI_PASS "12345678"</h1>
+<h1 id="define-led_gpio-8_1">define LED_GPIO   8</h1>
+<h1 id="define-led2_gpio-1-segundo-led-agregado-en-gpio-01">define LED2_GPIO  1  // Segundo LED agregado en GPIO 01</h1>
+<h1 id="define-max_retry-10_1">define MAX_RETRY 10</h1>
+<p>/<em> ===================== Globals ===================== </em>/
+static const char *TAG = "LAB_3";</p>
+<p>static EventGroupHandle_t s_wifi_event_group;</p>
+<h1 id="define-wifi_connected_bit-bit0_1">define WIFI_CONNECTED_BIT BIT0</h1>
+<p>static int s_retry = 0;
+static int s_led_state = 0;            // 0=OFF, 1=ON
+static int s_led2_state = 0;           // Estado para el segundo LED
+static httpd_handle_t s_server = NULL;</p>
+<p>/<em> ===================== LED helpers ===================== </em>/
+static void led_init(void)
+{
+    // Inicializar LED 1
+    gpio_reset_pin(LED_GPIO);
+    gpio_set_direction(LED_GPIO, GPIO_MODE_OUTPUT);
+    s_led_state = 0;
+    gpio_set_level(LED_GPIO, s_led_state);</p>
+<div class="language-text highlight"><pre><span></span><code>// Inicializar LED 2 (GPIO 01)
+gpio_reset_pin(LED2_GPIO);
+gpio_set_direction(LED2_GPIO, GPIO_MODE_OUTPUT);
+s_led2_state = 0;
+gpio_set_level(LED2_GPIO, s_led2_state);
+
+ESP_LOGI(TAG, &quot;LEDs initialized: GPIO %d and GPIO %d&quot;, LED_GPIO, LED2_GPIO);
+</code></pre></div>
+<p>}</p>
+<p>static void led_set(int on)
+{
+    s_led_state = (on != 0);
+    gpio_set_level(LED_GPIO, s_led_state);
+}</p>
+<p>static void led2_set(int on)
+{
+    s_led2_state = (on != 0);
+    gpio_set_level(LED2_GPIO, s_led2_state);
+}</p>
+<p>/<em> ===================== HTTP Handlers ===================== </em>/</p>
+<p>static esp_err_t root_get_handler(httpd_req_t <em>req)
+{
+    static const char </em>INDEX_HTML =
+        "&lt;!doctype html&gt;\n"
+        "<html><head>\n"
+        "  <meta charset='utf-8'>\n"
+        "  <meta name='viewport' content='width=device-width, initial-scale=1'>\n"
+        "  <title>ESP32-C6 LED Control</title>\n"
+        "</head><body>\n"
+        "  <h2>ESP32-C6 LED Control</h2>\n"
+        "  <p><strong>Control LED 1 :</strong></p>\n"
+        "  <p>\n"
+        "    <a href='/ledon'><button>LED 1 ON</button></a>\n"
+        "    <a href='/ledoff'><button>LED 1 OFF</button></a>\n"
+        "  </p>\n"
+        "  <p><strong>Control LED 2 :</strong></p>\n"
+        "  <p>\n"
+        "    <a href='/led2on'><button>LED 2 ON</button></a>\n"
+        "    <a href='/led2off'><button>LED 2 OFF</button></a>\n"
+        "  </p>\n"
+        "</body></html>\n";</p>
+<div class="language-text highlight"><pre><span></span><code>httpd_resp_set_type(req, &quot;text/html&quot;);
+httpd_resp_send(req, INDEX_HTML, HTTPD_RESP_USE_STRLEN);
+return ESP_OK;
+</code></pre></div>
+<p>}</p>
+<p>static esp_err_t ledon_get_handler(httpd_req_t <em>req)
+{
+    led_set(1);
+    static const char </em>RESP = "&lt;!doctype html&gt;<html><body><h3>LED 1 is now: ON</h3><p><a href='/'><button>Back</button></a></p></body></html>";
+    httpd_resp_set_type(req, "text/html");
+    httpd_resp_send(req, RESP, HTTPD_RESP_USE_STRLEN);
+    return ESP_OK;
+}</p>
+<p>static esp_err_t ledoff_get_handler(httpd_req_t <em>req)
+{
+    led_set(0);
+    static const char </em>RESP = "&lt;!doctype html&gt;<html><body><h3>LED 1 is now: OFF</h3><p><a href='/'><button>Back</button></a></p></body></html>";
+    httpd_resp_set_type(req, "text/html");
+    httpd_resp_send(req, RESP, HTTPD_RESP_USE_STRLEN);
+    return ESP_OK;
+}</p>
+<p>static esp_err_t led2on_get_handler(httpd_req_t <em>req)
+{
+    led2_set(1);
+    static const char </em>RESP = "&lt;!doctype html&gt;<html><body><h3>LED 2 is now: ON</h3><p><a href='/'><button>Back</button></a></p></body></html>";
+    httpd_resp_set_type(req, "text/html");
+    httpd_resp_send(req, RESP, HTTPD_RESP_USE_STRLEN);
+    return ESP_OK;
+}</p>
+<p>static esp_err_t led2off_get_handler(httpd_req_t <em>req)
+{
+    led2_set(0);
+    static const char </em>RESP = "&lt;!doctype html&gt;<html><body><h3>LED 2 is now: OFF</h3><p><a href='/'><button>Back</button></a></p></body></html>";
+    httpd_resp_set_type(req, "text/html");
+    httpd_resp_send(req, RESP, HTTPD_RESP_USE_STRLEN);
+    return ESP_OK;
+}</p>
+<p>/<em> ===================== HTTP Server Start + Route Registration ===================== </em>/</p>
+<p>static void http_server_start(void)
+{
+    httpd_config_t config = HTTPD_DEFAULT_CONFIG();
+    ESP_ERROR_CHECK(httpd_start(&amp;s_server, &amp;config));</p>
+<div class="language-text highlight"><pre><span></span><code>httpd_uri_t root = { .uri = &quot;/&quot;, .method = HTTP_GET, .handler = root_get_handler };
+httpd_uri_t ledon = { .uri = &quot;/ledon&quot;, .method = HTTP_GET, .handler = ledon_get_handler };
+httpd_uri_t ledoff = { .uri = &quot;/ledoff&quot;, .method = HTTP_GET, .handler = ledoff_get_handler };
+httpd_uri_t led2on = { .uri = &quot;/led2on&quot;, .method = HTTP_GET, .handler = led2on_get_handler };
+httpd_uri_t led2off = { .uri = &quot;/led2off&quot;, .method = HTTP_GET, .handler = led2off_get_handler };
+
+ESP_ERROR_CHECK(httpd_register_uri_handler(s_server, &amp;root));
+ESP_ERROR_CHECK(httpd_register_uri_handler(s_server, &amp;ledon));
+ESP_ERROR_CHECK(httpd_register_uri_handler(s_server, &amp;ledoff));
+ESP_ERROR_CHECK(httpd_register_uri_handler(s_server, &amp;led2on));
+ESP_ERROR_CHECK(httpd_register_uri_handler(s_server, &amp;led2off));
+
+ESP_LOGI(TAG, &quot;Routes registered: LED 1 and LED 2 controls available.&quot;);
+</code></pre></div>
+<p>}</p>
+<p>/<em> ===================== Wi-Fi STA connect + events (Sin cambios) ===================== </em>/</p>
+<p>static void wifi_event_handler(void <em>arg, esp_event_base_t event_base, int32_t event_id, void </em>event_data)
+{
+    if (event_base == WIFI_EVENT &amp;&amp; event_id == WIFI_EVENT_STA_START) {
+        esp_wifi_connect();
+    } else if (event_base == WIFI_EVENT &amp;&amp; event_id == WIFI_EVENT_STA_DISCONNECTED) {
+        if (s_retry &lt; MAX_RETRY) {
+            s_retry++;
+            esp_wifi_connect();
+        }
+    } else if (event_base == IP_EVENT &amp;&amp; event_id == IP_EVENT_STA_GOT_IP) {
+        s_retry = 0;
+        xEventGroupSetBits(s_wifi_event_group, WIFI_CONNECTED_BIT);
+    }
+}</p>
+<p>static void wifi_init_sta(void)
+{
+    s_wifi_event_group = xEventGroupCreate();
+    esp_netif_init();
+    esp_event_loop_create_default();
+    esp_netif_create_default_wifi_sta();
+    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+    esp_wifi_init(&amp;cfg);
+    esp_event_handler_register(WIFI_EVENT, ESP_EVENT_ANY_ID, &amp;wifi_event_handler, NULL);
+    esp_event_handler_register(IP_EVENT, IP_EVENT_STA_GOT_IP, &amp;wifi_event_handler, NULL);
+    wifi_config_t wifi_config = {0};
+    strncpy((char <em>)wifi_config.sta.ssid, WIFI_SSID, sizeof(wifi_config.sta.ssid));
+    strncpy((char </em>)wifi_config.sta.password, WIFI_PASS, sizeof(wifi_config.sta.password));
+    esp_wifi_set_mode(WIFI_MODE_STA);
+    esp_wifi_set_config(WIFI_IF_STA, &amp;wifi_config);
+    esp_wifi_start();
+}</p>
+<p>/<em> ===================== app_main ===================== </em>/</p>
+<p>void app_main(void)
+{
+    esp_err_t ret = nvs_flash_init();
+    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+        ESP_ERROR_CHECK(nvs_flash_erase());
+        ESP_ERROR_CHECK(nvs_flash_init());
+    }
+    wifi_init_sta();
+    xEventGroupWaitBits(s_wifi_event_group, WIFI_CONNECTED_BIT, pdFALSE, pdTRUE, pdMS_TO_TICKS(30000));</p>
+<div class="language-text highlight"><pre><span></span><code>led_init();
+http_server_start();
+</code></pre></div>
+<p>}</p>
+<ul>
+<li>Third: For this step, we hace to add a counter, this counter is for when we push on or off, the counter will go count each push. </li>
+</ul>
+<h3 id="code-3-add-the-counter">Code 3: Add the counter.</h3>
+<p>/<em>
+ * LAB 3 — ESP32-C6 Wi-Fi + HTTP LED Control + Auto-Refresh Counter
+ </em>/</p>
+<h1 id="include_5">include <string.h></h1>
+<h1 id="include_6">include <stdio.h></h1>
+<h1 id="include-freertosfreertosh_2">include "freertos/FreeRTOS.h"</h1>
+<h1 id="include-freertostaskh">include "freertos/task.h"</h1>
+<h1 id="include-freertosevent_groupsh_2">include "freertos/event_groups.h"</h1>
+<h1 id="include-esp_logh_2">include "esp_log.h"</h1>
+<h1 id="include-esp_errh_2">include "esp_err.h"</h1>
+<h1 id="include-nvs_flashh_2">include "nvs_flash.h"</h1>
+<h1 id="include-esp_netifh_2">include "esp_netif.h"</h1>
+<h1 id="include-esp_eventh_2">include "esp_event.h"</h1>
+<h1 id="include-esp_wifih_2">include "esp_wifi.h"</h1>
+<h1 id="include-drivergpioh_2">include "driver/gpio.h"</h1>
+<h1 id="include-esp_http_serverh_2">include "esp_http_server.h"</h1>
+<p>/<em> ===================== User config ===================== </em>/</p>
+<h1 id="define-wifi_ssid-xr-yahir">define WIFI_SSID "Xr Yahir"</h1>
+<h1 id="define-wifi_pass-12345678_1">define WIFI_PASS "12345678"</h1>
+<h1 id="define-led_gpio-8_2">define LED_GPIO   8</h1>
+<h1 id="define-led2_gpio-1">define LED2_GPIO  1</h1>
+<h1 id="define-btn_gpio-4">define BTN_GPIO   4</h1>
+<h1 id="define-max_retry-10_2">define MAX_RETRY 10</h1>
+<p>/<em> ===================== Globals ===================== </em>/
+static const char *TAG = "LAB_3";</p>
+<p>static EventGroupHandle_t s_wifi_event_group;</p>
+<h1 id="define-wifi_connected_bit-bit0_2">define WIFI_CONNECTED_BIT BIT0</h1>
+<p>static int s_retry = 0;
+static int s_led_state = 0;          <br />
+static int s_led2_state = 0;         <br />
+static int s_btn_counter = 0;        <br />
+static httpd_handle_t s_server = NULL;</p>
+<p>/<em> ===================== Peripherals helpers ===================== </em>/
+static void led_init(void)
+{
+    gpio_reset_pin(LED_GPIO);
+    gpio_set_direction(LED_GPIO, GPIO_MODE_OUTPUT);
+    s_led_state = 0;
+    gpio_set_level(LED_GPIO, s_led_state);</p>
+<div class="language-text highlight"><pre><span></span><code>gpio_reset_pin(LED2_GPIO);
+gpio_set_direction(LED2_GPIO, GPIO_MODE_OUTPUT);
+s_led2_state = 0;
+gpio_set_level(LED2_GPIO, s_led2_state);
+
+gpio_reset_pin(BTN_GPIO);
+gpio_set_direction(BTN_GPIO, GPIO_MODE_INPUT);
+gpio_pullup_en(BTN_GPIO);
+
+ESP_LOGI(TAG, &quot;LEDs and Button initialized.&quot;);
+</code></pre></div>
+<p>}</p>
+<p>void button_task(void *pvParameter) {
+    int last_state = 1;
+    while(1) {
+        int current_state = gpio_get_level(BTN_GPIO);
+        if (last_state == 1 &amp;&amp; current_state == 0) {
+            s_btn_counter++;
+            vTaskDelay(pdMS_TO_TICKS(200)); 
+        }
+        last_state = current_state;
+        vTaskDelay(pdMS_TO_TICKS(50));
+    }
+}</p>
+<p>static void led_set(int on) {
+    s_led_state = (on != 0);
+    gpio_set_level(LED_GPIO, s_led_state);
+}</p>
+<p>static void led2_set(int on) {
+    s_led2_state = (on != 0);
+    gpio_set_level(LED2_GPIO, s_led2_state);
+}</p>
+<p>/<em> ===================== HTTP Handlers ===================== </em>/</p>
+<p>static esp_err_t status_get_handler(httpd_req_t *req) {
+    char resp[16];
+    snprintf(resp, sizeof(resp), "%d", s_btn_counter);
+    httpd_resp_send(req, resp, HTTPD_RESP_USE_STRLEN);
+    return ESP_OK;
+}</p>
+<p>static esp_err_t root_get_handler(httpd_req_t <em>req)
+{
+    static const char </em>INDEX_HTML =
+        "&lt;!doctype html&gt;\n"
+        "<html><head>\n"
+        "  <meta charset='utf-8'>\n"
+        "  <meta name='viewport' content='width=device-width, initial-scale=1'>\n"
+        "  <title>ESP32-C6 LED Control</title>\n"
+        "</head><body>\n"
+        "  <h2>ESP32-C6 LED Control</h2>\n"</p>
+<div class="language-text highlight"><pre><span></span><code>    &quot;  &lt;p&gt;&lt;strong&gt;Control LED 1 :&lt;/strong&gt;&lt;/p&gt;\n&quot;
+    &quot;  &lt;p&gt;\n&quot;
+    &quot;    &lt;a href=&#39;/ledon&#39;&gt;&lt;button&gt;LED 1 ON&lt;/button&gt;&lt;/a&gt;\n&quot;
+    &quot;    &lt;a href=&#39;/ledoff&#39;&gt;&lt;button&gt;LED 1 OFF&lt;/button&gt;&lt;/a&gt;\n&quot;
+    &quot;  &lt;/p&gt;\n&quot;
+    &quot;  &lt;p&gt;&lt;strong&gt;Control LED 2 :&lt;/strong&gt;&lt;/p&gt;\n&quot;
+    &quot;  &lt;p&gt;\n&quot;
+    &quot;    &lt;a href=&#39;/led2on&#39;&gt;&lt;button&gt;LED 2 ON&lt;/button&gt;&lt;/a&gt;\n&quot;
+    &quot;    &lt;a href=&#39;/led2off&#39;&gt;&lt;button&gt;LED 2 OFF&lt;/button&gt;&lt;/a&gt;\n&quot;
+    &quot;  &lt;p&gt;&lt;strong&gt;Contador: &lt;span id=&#39;v&#39;&gt;0&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;\n&quot;
+
+    &quot;  &lt;/p&gt;\n&quot;
+    &quot;  &lt;script&gt;\n&quot;
+    &quot;    function refresh() {\n&quot;
+    &quot;      fetch(&#39;/status&#39;).then(r =&gt; r.text()).then(d =&gt; {\n&quot;
+    &quot;        document.getElementById(&#39;v&#39;).innerText = d;\n&quot;
+    &quot;      });\n&quot;
+    &quot;    }\n&quot;
+    &quot;    setInterval(refresh, 1000);\n&quot;
+    &quot;    refresh();\n&quot;
+    &quot;  &lt;/script&gt;\n&quot;
+    &quot;&lt;/body&gt;&lt;/html&gt;\n&quot;;
+
+httpd_resp_set_type(req, &quot;text/html&quot;);
+httpd_resp_send(req, INDEX_HTML, HTTPD_RESP_USE_STRLEN);
+return ESP_OK;
+</code></pre></div>
+<p>}</p>
+<p>static esp_err_t ledon_get_handler(httpd_req_t <em>req) {
+    led_set(1);
+    static const char </em>RESP = "&lt;!doctype html&gt;<html><body><h3>LED 1 is now: ON</h3><p><a href='/'><button>Back</button></a></p></body></html>";
+    httpd_resp_send(req, RESP, HTTPD_RESP_USE_STRLEN);
+    return ESP_OK;
+}</p>
+<p>static esp_err_t ledoff_get_handler(httpd_req_t <em>req) {
+    led_set(0);
+    static const char </em>RESP = "&lt;!doctype html&gt;<html><body><h3>LED 1 is now: OFF</h3><p><a href='/'><button>Back</button></a></p></body></html>";
+    httpd_resp_send(req, RESP, HTTPD_RESP_USE_STRLEN);
+    return ESP_OK;
+}</p>
+<p>static esp_err_t led2on_get_handler(httpd_req_t <em>req) {
+    led2_set(1);
+    static const char </em>RESP = "&lt;!doctype html&gt;<html><body><h3>LED 2 is now: ON</h3><p><a href='/'><button>Back</button></a></p></body></html>";
+    httpd_resp_send(req, RESP, HTTPD_RESP_USE_STRLEN);
+    return ESP_OK;
+}</p>
+<p>static esp_err_t led2off_get_handler(httpd_req_t <em>req) {
+    led2_set(0);
+    static const char </em>RESP = "&lt;!doctype html&gt;<html><body><h3>LED 2 is now: OFF</h3><p><a href='/'><button>Back</button></a></p></body></html>";
+    httpd_resp_send(req, RESP, HTTPD_RESP_USE_STRLEN);
+    return ESP_OK;
+}</p>
+<p>/<em> ===================== HTTP Server Start ===================== </em>/</p>
+<p>static void http_server_start(void)
+{
+    httpd_config_t config = HTTPD_DEFAULT_CONFIG();
+    ESP_ERROR_CHECK(httpd_start(&amp;s_server, &amp;config));</p>
+<div class="language-text highlight"><pre><span></span><code>httpd_uri_t root = { .uri = &quot;/&quot;, .method = HTTP_GET, .handler = root_get_handler };
+httpd_uri_t stat = { .uri = &quot;/status&quot;, .method = HTTP_GET, .handler = status_get_handler };
+httpd_uri_t ledon = { .uri = &quot;/ledon&quot;, .method = HTTP_GET, .handler = ledon_get_handler };
+httpd_uri_t ledoff = { .uri = &quot;/ledoff&quot;, .method = HTTP_GET, .handler = ledoff_get_handler };
+httpd_uri_t led2on = { .uri = &quot;/led2on&quot;, .method = HTTP_GET, .handler = led2on_get_handler };
+httpd_uri_t led2off = { .uri = &quot;/led2off&quot;, .method = HTTP_GET, .handler = led2off_get_handler };
+
+httpd_register_uri_handler(s_server, &amp;root);
+httpd_register_uri_handler(s_server, &amp;stat);
+httpd_register_uri_handler(s_server, &amp;ledon);
+httpd_register_uri_handler(s_server, &amp;ledoff);
+httpd_register_uri_handler(s_server, &amp;led2on);
+httpd_register_uri_handler(s_server, &amp;led2off);
+</code></pre></div>
+<p>}</p>
+<p>/<em> ===================== Wi-Fi STA (Sin cambios) ===================== </em>/</p>
+<p>static void wifi_event_handler(void <em>arg, esp_event_base_t event_base, int32_t event_id, void </em>event_data) {
+    if (event_base == WIFI_EVENT &amp;&amp; event_id == WIFI_EVENT_STA_START) esp_wifi_connect();
+    else if (event_base == WIFI_EVENT &amp;&amp; event_id == WIFI_EVENT_STA_DISCONNECTED) {
+        if (s_retry &lt; MAX_RETRY) { s_retry++; esp_wifi_connect(); }
+    } else if (event_base == IP_EVENT &amp;&amp; event_id == IP_EVENT_STA_GOT_IP) {
+        s_retry = 0; xEventGroupSetBits(s_wifi_event_group, WIFI_CONNECTED_BIT);
+    }
+}</p>
+<p>static void wifi_init_sta(void) {
+    s_wifi_event_group = xEventGroupCreate();
+    esp_netif_init();
+    esp_event_loop_create_default();
+    esp_netif_create_default_wifi_sta();
+    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+    esp_wifi_init(&amp;cfg);
+    esp_event_handler_register(WIFI_EVENT, ESP_EVENT_ANY_ID, &amp;wifi_event_handler, NULL);
+    esp_event_handler_register(IP_EVENT, IP_EVENT_STA_GOT_IP, &amp;wifi_event_handler, NULL);
+    wifi_config_t wifi_config = { .sta = { .ssid = WIFI_SSID, .password = WIFI_PASS } };
+    esp_wifi_set_mode(WIFI_MODE_STA);
+    esp_wifi_set_config(WIFI_IF_STA, &amp;wifi_config);
+    esp_wifi_start();
+}</p>
+<p>void app_main(void)
+{
+    esp_err_t ret = nvs_flash_init();
+    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+        ESP_ERROR_CHECK(nvs_flash_erase());
+        ESP_ERROR_CHECK(nvs_flash_init());
+    }
+    wifi_init_sta();
+    xEventGroupWaitBits(s_wifi_event_group, WIFI_CONNECTED_BIT, pdFALSE, pdTRUE, portMAX_DELAY);</p>
+<div class="language-text highlight"><pre><span></span><code>led_init();
+xTaskCreate(button_task, &quot;button_task&quot;, 2048, NULL, 5, NULL);
+http_server_start();
+</code></pre></div>
+<p>}</p>
+<ul>
+<li>Fourth: Finally we add to the code the slider for control a dc motor. </li>
+</ul>
+<h3 id="code-4-slider-for-control-dc-motor">Code 4: Slider for control DC motor</h3>
+<h1 id="include_7">include <string.h></h1>
+<h1 id="include_8">include <stdio.h></h1>
+<h1 id="include_9">include <stdlib.h></h1>
+<h1 id="include-freertosfreertosh_3">include "freertos/FreeRTOS.h"</h1>
+<h1 id="include-freertostaskh_1">include "freertos/task.h"</h1>
+<h1 id="include-freertosevent_groupsh_3">include "freertos/event_groups.h"</h1>
+<h1 id="include-esp_logh_3">include "esp_log.h"</h1>
+<h1 id="include-esp_errh_3">include "esp_err.h"</h1>
+<h1 id="include-nvs_flashh_3">include "nvs_flash.h"</h1>
+<h1 id="include-esp_netifh_3">include "esp_netif.h"</h1>
+<h1 id="include-esp_eventh_3">include "esp_event.h"</h1>
+<h1 id="include-esp_wifih_3">include "esp_wifi.h"</h1>
+<h1 id="include-drivergpioh_3">include "driver/gpio.h"</h1>
+<h1 id="include-driverledch-libreria-para-pwm-motor">include "driver/ledc.h" // Librería para PWM (Motor)</h1>
+<h1 id="include-esp_http_serverh_3">include "esp_http_server.h"</h1>
+<p>/<em> ===================== User config ===================== </em>/</p>
+<h1 id="define-wifi_ssid-xr-yahir_1">define WIFI_SSID "Xr Yahir"</h1>
+<h1 id="define-wifi_pass-12345678_2">define WIFI_PASS "12345678"</h1>
+<h1 id="define-led_gpio-8_3">define LED_GPIO   8</h1>
+<h1 id="define-led2_gpio-1_1">define LED2_GPIO  1</h1>
+<h1 id="define-btn_gpio-4_1">define BTN_GPIO   4</h1>
+<h1 id="define-motor_gpio-6-motor-en-gpio-06">define MOTOR_GPIO 6  // Motor en GPIO 06</h1>
+<h1 id="define-max_retry-10_3">define MAX_RETRY  10</h1>
+<p>// Configuración PWM Motor</p>
+<h1 id="define-ledc_timer-ledc_timer_0">define LEDC_TIMER              LEDC_TIMER_0</h1>
+<h1 id="define-ledc_mode-ledc_low_speed_mode">define LEDC_MODE               LEDC_LOW_SPEED_MODE</h1>
+<h1 id="define-ledc_channel-ledc_channel_0">define LEDC_CHANNEL            LEDC_CHANNEL_0</h1>
+<h1 id="define-ledc_duty_res-ledc_timer_10_bit-resolucion-de-0-a-1023">define LEDC_DUTY_RES           LEDC_TIMER_10_BIT // Resolución de 0 a 1023</h1>
+<h1 id="define-ledc_frequency-5000-5-khz">define LEDC_FREQUENCY          (5000)            // 5 kHz</h1>
+<p>/<em> ===================== Globals ===================== </em>/
+static const char *TAG = "LAB_3";
+static EventGroupHandle_t s_wifi_event_group;</p>
+<h1 id="define-wifi_connected_bit-bit0_3">define WIFI_CONNECTED_BIT BIT0</h1>
+<p>static int s_retry = 0;
+static int s_led_state = 0;          <br />
+static int s_led2_state = 0;         <br />
+static int s_btn_counter = 0;        <br />
+static httpd_handle_t s_server = NULL;</p>
+<p>/<em> ===================== Peripherals helpers ===================== </em>/
+static void peripherals_init(void)
+{
+    // LEDs
+    gpio_reset_pin(LED_GPIO);
+    gpio_set_direction(LED_GPIO, GPIO_MODE_OUTPUT);
+    gpio_set_level(LED_GPIO, 0);</p>
+<div class="language-text highlight"><pre><span></span><code>gpio_reset_pin(LED2_GPIO);
+gpio_set_direction(LED2_GPIO, GPIO_MODE_OUTPUT);
+gpio_set_level(LED2_GPIO, 0);
+
+// Botón
+gpio_reset_pin(BTN_GPIO);
+gpio_set_direction(BTN_GPIO, GPIO_MODE_INPUT);
+gpio_pullup_en(BTN_GPIO);
+
+// Configuración PWM para el Motor (GPIO 06)
+ledc_timer_config_t ledc_timer = {
+    .speed_mode       = LEDC_MODE,
+    .timer_num        = LEDC_TIMER,
+    .duty_resolution  = LEDC_DUTY_RES,
+    .freq_hz          = LEDC_FREQUENCY,
+    .clk_cfg          = LEDC_AUTO_CLK
+};
+ledc_timer_config(&amp;ledc_timer);
+
+ledc_channel_config_t ledc_channel = {
+    .speed_mode     = LEDC_MODE,
+    .channel        = LEDC_CHANNEL,
+    .timer_sel      = LEDC_TIMER,
+    .intr_type      = LEDC_INTR_DISABLE,
+    .gpio_num       = MOTOR_GPIO,
+    .duty           = 0, // Inicia apagado
+    .hpoint         = 0
+};
+ledc_channel_config(&amp;ledc_channel);
+
+ESP_LOGI(TAG, &quot;Peripherals (LEDs, Button, Motor PWM) initialized.&quot;);
+</code></pre></div>
+<p>}</p>
+<p>void button_task(void *pvParameter) {
+    int last_state = 1;
+    while(1) {
+        int current_state = gpio_get_level(BTN_GPIO);
+        if (last_state == 1 &amp;&amp; current_state == 0) {
+            s_btn_counter++;
+            vTaskDelay(pdMS_TO_TICKS(200)); 
+        }
+        last_state = current_state;
+        vTaskDelay(pdMS_TO_TICKS(50));
+    }
+}</p>
+<p>static void led_set(int on) {
+    s_led_state = (on != 0);
+    gpio_set_level(LED_GPIO, s_led_state);
+}</p>
+<p>static void led2_set(int on) {
+    s_led2_state = (on != 0);
+    gpio_set_level(LED2_GPIO, s_led2_state);
+}</p>
+<p>/<em> ===================== HTTP Handlers ===================== </em>/</p>
+<p>static esp_err_t status_get_handler(httpd_req_t *req) {
+    char resp[16];
+    snprintf(resp, sizeof(resp), "%d", s_btn_counter);
+    httpd_resp_send(req, resp, HTTPD_RESP_USE_STRLEN);
+    return ESP_OK;
+}</p>
+<p>// Handler para la velocidad del motor
+static esp_err_t motor_set_handler(httpd_req_t *req) {
+    char buf[10];
+    int ret = httpd_req_get_url_query_str(req, buf, sizeof(buf));
+    if (ret == ESP_OK) {
+        char val_str[10];
+        if (httpd_query_key_value(buf, "v", val_str, sizeof(val_str)) == ESP_OK) {
+            int speed = atoi(val_str); // Valor de 0 a 100
+            uint32_t duty = (speed * 1023) / 100; // Mapeo a resolución de 10 bits
+            ledc_set_duty(LEDC_MODE, LEDC_CHANNEL, duty);
+            ledc_update_duty(LEDC_MODE, LEDC_CHANNEL);
+        }
+    }
+    httpd_resp_send(req, NULL, 0);
+    return ESP_OK;
+}</p>
+<p>static esp_err_t root_get_handler(httpd_req_t <em>req)
+{
+    static const char </em>INDEX_HTML =
+        "&lt;!doctype html&gt;\n"
+        "<html><head>\n"
+        "  <meta charset='utf-8'>\n"
+        "  <meta name='viewport' content='width=device-width, initial-scale=1'>\n"
+        "  <title>ESP32-C6 Control</title>\n"
+        "</head><body>\n"
+        "  <h2>ESP32-C6 LED Control</h2>\n"
+        "  <p><strong>Control LED 1 :</strong></p>\n"
+        "  <p>\n"
+        "    <a href='/ledon'><button>LED 1 ON</button></a>\n"
+        "    <a href='/ledoff'><button>LED 1 OFF</button></a>\n"
+        "  </p>\n"
+        "  <p><strong>Control LED 2 :</strong></p>\n"
+        "  <p>\n"
+        "    <a href='/led2on'><button>LED 2 ON</button></a>\n"
+        "    <a href='/led2off'><button>LED 2 OFF</button></a>\n"
+        "  </p>\n"
+        "  <p><strong>Contador: <span id='v'>0</span></strong></p>\n"
+        "  <hr>\n"
+        "  <h3>Velocidad del Motor </h3>\n"
+        "  <input type='range' min='0' max='100' value='0' style='width:80%%' oninput='setMotor(this.value)'>\n"
+        "  <script>\n"
+        "    function setMotor(val) {\n"
+        "      document.getElementById('p').innerText = val;\n"
+        "      fetch('/motor?v=' + val);\n"
+        "    }\n"
+        "    function refresh() {\n"
+        "      fetch('/status').then(r =&gt; r.text()).then(d =&gt; {\n"
+        "        document.getElementById('v').innerText = d;\n"
+        "      });\n"
+        "    }\n"
+        "    setInterval(refresh, 1000);\n"
+        "    refresh();\n"
+        "  </script>\n"
+        "</body></html>\n";</p>
+<div class="language-text highlight"><pre><span></span><code>httpd_resp_set_type(req, &quot;text/html&quot;);
+httpd_resp_send(req, INDEX_HTML, HTTPD_RESP_USE_STRLEN);
+return ESP_OK;
+</code></pre></div>
+<p>}</p>
+<p>static esp_err_t ledon_get_handler(httpd_req_t <em>req) {
+    led_set(1);
+    static const char </em>RESP = "&lt;!doctype html&gt;<html><body><h3>LED 1 is now: ON</h3><p><a href='/'><button>Back</button></a></p></body></html>";
+    httpd_resp_send(req, RESP, HTTPD_RESP_USE_STRLEN);
+    return ESP_OK;
+}</p>
+<p>static esp_err_t ledoff_get_handler(httpd_req_t <em>req) {
+    led_set(0);
+    static const char </em>RESP = "&lt;!doctype html&gt;<html><body><h3>LED 1 is now: OFF</h3><p><a href='/'><button>Back</button></a></p></body></html>";
+    httpd_resp_send(req, RESP, HTTPD_RESP_USE_STRLEN);
+    return ESP_OK;
+}</p>
+<p>static esp_err_t led2on_get_handler(httpd_req_t <em>req) {
+    led2_set(1);
+    static const char </em>RESP = "&lt;!doctype html&gt;<html><body><h3>LED 2 is now: ON</h3><p><a href='/'><button>Back</button></a></p></body></html>";
+    httpd_resp_send(req, RESP, HTTPD_RESP_USE_STRLEN);
+    return ESP_OK;
+}</p>
+<p>static esp_err_t led2off_get_handler(httpd_req_t <em>req) {
+    led2_set(0);
+    static const char </em>RESP = "&lt;!doctype html&gt;<html><body><h3>LED 2 is now: OFF</h3><p><a href='/'><button>Back</button></a></p></body></html>";
+    httpd_resp_send(req, RESP, HTTPD_RESP_USE_STRLEN);
+    return ESP_OK;
+}</p>
+<p>/<em> ===================== HTTP Server Start ===================== </em>/</p>
+<p>static void http_server_start(void)
+{
+    httpd_config_t config = HTTPD_DEFAULT_CONFIG();
+    ESP_ERROR_CHECK(httpd_start(&amp;s_server, &amp;config));</p>
+<div class="language-text highlight"><pre><span></span><code>httpd_uri_t root = { .uri = &quot;/&quot;, .method = HTTP_GET, .handler = root_get_handler };
+httpd_uri_t stat = { .uri = &quot;/status&quot;, .method = HTTP_GET, .handler = status_get_handler };
+httpd_uri_t mtr  = { .uri = &quot;/motor&quot;,  .method = HTTP_GET, .handler = motor_set_handler };
+httpd_uri_t ledon = { .uri = &quot;/ledon&quot;, .method = HTTP_GET, .handler = ledon_get_handler };
+httpd_uri_t ledoff = { .uri = &quot;/ledoff&quot;, .method = HTTP_GET, .handler = ledoff_get_handler };
+httpd_uri_t led2on = { .uri = &quot;/led2on&quot;, .method = HTTP_GET, .handler = led2on_get_handler };
+httpd_uri_t led2off = { .uri = &quot;/led2off&quot;, .method = HTTP_GET, .handler = led2off_get_handler };
+
+httpd_register_uri_handler(s_server, &amp;root);
+httpd_register_uri_handler(s_server, &amp;stat);
+httpd_register_uri_handler(s_server, &amp;mtr);
+httpd_register_uri_handler(s_server, &amp;ledon);
+httpd_register_uri_handler(s_server, &amp;ledoff);
+httpd_register_uri_handler(s_server, &amp;led2on);
+httpd_register_uri_handler(s_server, &amp;led2off);
+</code></pre></div>
+<p>}</p>
+<p>/<em> ===================== Wi-Fi STA ===================== </em>/</p>
+<p>static void wifi_event_handler(void <em>arg, esp_event_base_t event_base, int32_t event_id, void </em>event_data) {
+    if (event_base == WIFI_EVENT &amp;&amp; event_id == WIFI_EVENT_STA_START) esp_wifi_connect();
+    else if (event_base == WIFI_EVENT &amp;&amp; event_id == WIFI_EVENT_STA_DISCONNECTED) {
+        if (s_retry &lt; MAX_RETRY) { s_retry++; esp_wifi_connect(); }
+    } else if (event_base == IP_EVENT &amp;&amp; event_id == IP_EVENT_STA_GOT_IP) {
+        s_retry = 0; xEventGroupSetBits(s_wifi_event_group, WIFI_CONNECTED_BIT);
+    }
+}</p>
+<p>static void wifi_init_sta(void) {
+    s_wifi_event_group = xEventGroupCreate();
+    esp_netif_init();
+    esp_event_loop_create_default();
+    esp_netif_create_default_wifi_sta();
+    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+    esp_wifi_init(&amp;cfg);
+    esp_event_handler_register(WIFI_EVENT, ESP_EVENT_ANY_ID, &amp;wifi_event_handler, NULL);
+    esp_event_handler_register(IP_EVENT, IP_EVENT_STA_GOT_IP, &amp;wifi_event_handler, NULL);
+    wifi_config_t wifi_config = { .sta = { .ssid = WIFI_SSID, .password = WIFI_PASS } };
+    esp_wifi_set_mode(WIFI_MODE_STA);
+    esp_wifi_set_config(WIFI_IF_STA, &amp;wifi_config);
+    esp_wifi_start();
+}</p>
+<p>void app_main(void)
+{
+    esp_err_t ret = nvs_flash_init();
+    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+        ESP_ERROR_CHECK(nvs_flash_erase());
+        ESP_ERROR_CHECK(nvs_flash_init());
+    }
+    wifi_init_sta();
+    xEventGroupWaitBits(s_wifi_event_group, WIFI_CONNECTED_BIT, pdFALSE, pdTRUE, portMAX_DELAY);</p>
+<div class="language-text highlight"><pre><span></span><code>peripherals_init();
+xTaskCreate(button_task, &quot;button_task&quot;, 2048, NULL, 5, NULL);
+http_server_start();
+</code></pre></div>
+<p>}</p>
+<h3 id="results">Results</h3>
+<ul>
+<li>2 leds and 2 buttons in the page</li>
+</ul>
+<p><img alt="Diagrama del sistema" src="recursos/imgs/2_leds.png" /></p>
+<ul>
+<li>The 2 buttons in the page </li>
+</ul>
+<p><img alt="Diagrama del sistema" src="recursos/imgs/2_botones.png" /></p>
+<ul>
+<li>2 buttons, 2 leds and the button for counter</li>
+</ul>
+<p><img alt="Diagrama del sistema" src="recursos/imgs/Counter.png" /></p>
+<ul>
+<li>Page </li>
+</ul>
+<p><img alt="Diagrama del sistema" src="recursos/imgs/Page_counter.png" /></p>
+<ul>
+<li>Motor DC and the slider</li>
+</ul>
+<p><img alt="Diagrama del sistema" src="recursos/imgs/slider.jpeg" /></p>
+<ul>
+<li>Motor DC run</li>
+</ul>
+<p><a href="https://youtube.com/shorts/EvYRQ7WdkHw?feature=share">Video motor DC</a>]</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "content.tooltips"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
