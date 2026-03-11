@@ -34,7 +34,7 @@ Pablo Eduardo López Manzano
 * The code has peripheral configuration the code utilizes the LEDC  peripheral of the ESP32-C6 to generate a high-frequency PWM signal, ensuring smooth motor rotation without audible noise.
 
  After the data resolution and mapping since the ESP32-C6 features a 12-bit ADC, the input signal is processed through a mapping function to match the 8-bit resolution of the PWM output
- 
+``
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -331,7 +331,7 @@ void app_main(void)
     wifi_init_sta();
     mqtt_app_start("mqtt://test.mosquitto.org:1883");
 }
-
+``
  
 * The speed value is converted from an integer to a string using dtostrf() before being published to the MQTT broker to allow real-time dashboard visualization.
 
