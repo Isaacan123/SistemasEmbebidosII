@@ -1,352 +1,199 @@
-# Practica de Laboratorio # LAB 03
+# MQTT LAB pt2
 
 ## Team 
 * Yahir Gil Mendoza
 * Isaac Antonio Perez Aleman
 * Pablo Eduardo López Manzano
+* Juan David Garcia cortez 
+* Sumie Arai Erazo
 
----
+## 1) Exercise Goals
+Connect 2 ESPS with MQTT to control on state and brightness
 
-## 1) Activity Goals
+## 2) Materials & Setup
+- **Tools/Software** - Editors: VS Code, Python 3.12, ESP32-C6
 
-* **Understand the Embedded Server:** Set up and manage the lightweight `esp_http_server` within the ESP-IDF environment.
-* **Configure URI Handlers:** Register and map specific API routes for HTML interfaces and `/api/led` for JSON endpoints to their corresponding C functions.
-* **Process HTTP Requests:** Successfully read and parse incoming request bodies, particularly extracting JSON data from POST requests to control device hardware in this case a led.
-* **Manage HTTP Headers:** Assign appropriate `Content-Type` to server responses to ensure browsers correctly interpret them as `text/html` or `application/json`.
+**Wiring/Safety:** - ESP32-C6 , LED, BUTTON, RESISTANCE OF  220 OHMS and 1KOHMS
 
----
+## 3) Procedure 
+The ESP32 works like a mini‑website that listens to commands and controls the LED, while making sure the responses are easy for apps or browsers to understand.
 
-## 2) Materials
-
-* ESP32‑C6 with USB‑C cable (data-capable)
-* LED + 330 Ω resistor + jumper wires
-* Protoboard
-* Motor DC
-
----
-
-## 3) Procedure
-
-### First Step
-We use the code given by the teacher, to follow how the program works, the HTML interface, and the IP assignment.
-
-**Code 1: General code**
-
-```c
-/*
- * LAB 3 — ESP32-C6 Wi-Fi + HTTP LED Control 
- *
- * Features:
- * - Wi-Fi STA connect + reconnect using events
- * - Wait for IP (WIFI_CONNECTED_BIT)
- * - Simple GPIO LED control (gpio_reset_pin + gpio_set_direction)
- * - HTTP server:
- * GET  /         -> HTML UI
- * GET  /api/led  -> JSON {"state":0|1}
- * POST /api/led  -> JSON {"state":0|1} sets LED, returns {"ok":true}
- *
- */
-// String handling and standard libraries
-#include <string.h>
+## Codes
+### Main Code
+```bash
 #include <stdio.h>
-#include <stdlib.h>
-// FreeRTOS and event groups
 #include "freertos/FreeRTOS.h"
-#include "freertos/event_groups.h"
-// ESP-IDF Logging and error handling
-#include "esp_log.h"
-#include "esp_err.h"
-// Wi-Fi and network
+#include "freertos/task.h"
 #include "nvs_flash.h"
-#include "esp_netif.h"
-#include "esp_event.h"
-#include "esp_wifi.h"
-// GPIO control
-#include "driver/gpio.h"
-// HTTP server
-#include "esp_http_server.h"
+#include "esp_log.h"
 
-/* ===================== User config ===================== */
-#define WIFI_SSID "SSID_HERE"
-#define WIFI_PASS "PASS_HERE"
+// Tus cabeceras personalizadas
+#include "wifi_sta.h"
+#include "mqtt_client_app.h"
 
-/* LED pin */
-#define LED_GPIO 8
+static const char *TAG = "MAIN_APP";
 
-/* Reconnect policy */
-#define MAX_RETRY 10
+// Credenciales y Broker
+#define MI_SSID "iPhone de Sumie"
+#define MI_PASS "12345678"
+#define MI_BROKER "mqtt://test.mosquitto.org:1883"
 
-/* ===================== Globals ===================== */
-static const char *TAG = "LAB_3";
-
-// Wi-Fi event group and bit seen in Lab 2
-static EventGroupHandle_t s_wifi_event_group;
-#define WIFI_CONNECTED_BIT BIT0
-
-static int s_retry = 0;// Retry count for Wi-Fi reconnects
-
-static int s_led_state = 0;               // 0=OFF, 1=ON
-static httpd_handle_t s_server = NULL;    // HTTP server handle
-
-/* ===================== LED helpers ===================== */
-static void led_init(void)
-{
-    gpio_reset_pin(LED_GPIO);
-    gpio_set_direction(LED_GPIO, GPIO_MODE_OUTPUT);
-
-    s_led_state = 0;
-    gpio_set_level(LED_GPIO, s_led_state);
-
-    ESP_LOGI(TAG, "LED initialized on GPIO %d (state=%d)", LED_GPIO, s_led_state);
-}
-
-/*Function to set the LED from the state*/
-static void led_set(int on)
-{
-    s_led_state = (on != 0);
-    gpio_set_level(LED_GPIO, s_led_state);
-    ESP_LOGI(TAG, "LED set to %d", s_led_state);
-}
-
-/* ===================== HTTP handlers ===================== */
-/*Remember, handlers are special functions that process HTTP requests and generate responses*/
-
-static esp_err_t api_led_get(httpd_req_t *req)
-{
-    /* resp is a buffer to hold the JSON response  text in this case our jason is
-       either {"state":0} or {"state":1} */
-    char resp[32];
-    /*sprintf is a normal printf for strings, snprintf is safer because it 
-    limits the number of characters written to the buffer
-
-    Here we build the JSON string with the current LED state. 
-    */
-    snprintf(resp, sizeof(resp), "{\"state\":%d}", s_led_state);
-
-    /* Tell the client (browser/Postman/etc.) that the payload is JSON.
-       This sets the HTTP header: Content-Type: application/json */
-    httpd_resp_set_type(req, "application/json");
-
-    /* Send the response body to the client.
-       - 'resp' is the payload
-       - HTTPD_RESP_USE_STRLEN tells ESP-IDF to compute the string length automatically
-         (it treats resp as a null-terminated C string). */
-    httpd_resp_send(req, resp, HTTPD_RESP_USE_STRLEN);
-
-    /* Return ESP_OK so the HTTP server knows the request was handled correctly. */
-    return ESP_OK;
-}
-
-static esp_err_t api_led_post(httpd_req_t *req)
-{
-    // Basic safety: reject empty or very large payloads
-    if (req->content_len <= 0 || req->content_len > 256) {
-        httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Invalid Content-Length");
-        return ESP_FAIL;
-    }
-
-    char buf[257] = {0}; // +1 for null terminator
-    int received = httpd_req_recv(req, buf, req->content_len);
-    if (received <= 0) {
-        httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Empty body");
-        return ESP_FAIL;
-    }
-    buf[received] = '\0';
-
-    // Minimal parse: find "state":<number>
-    int state = -1;
-    char *p = strstr(buf, "\"state\"");
-    if (p) {
-        p = strchr(p, ':');
-        if (p) state = atoi(p + 1);
-    }
-
-    if (state != 0 && state != 1) {
-        httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "state must be 0 or 1");
-        return ESP_FAIL;
-    }
-
-    led_set(state);
-
-    httpd_resp_set_type(req, "application/json");
-    httpd_resp_sendstr(req, "{\"ok\":true}");
-    return ESP_OK;
-}
-
-static esp_err_t root_get_handler(httpd_req_t *req)
-{
-    // Readable inline HTML
-    static const char *INDEX_HTML =
-        "<!doctype html>\n"
-        "<html>\n"
-        "<head>\n"
-        "  <meta charset='utf-8'>\n"
-        "  <meta name='viewport' content='width=device-width, initial-scale=1'>\n"
-        "  <title>ESP32-C6 LED</title>\n"
-        "</head>\n"
-        "<body>\n"
-        "  <h2>ESP32-C6 LED Control</h2>\n"
-        "  <button onclick='setLed(1)'>ON</button>\n"
-        "  <button onclick='setLed(0)'>OFF</button>\n"
-        "  <p id='st'>State: ?</p>\n"
-        "\n"
-        "  <script>\n"
-        "    async function refresh(){\n"
-        "      const r = await fetch('/api/led');\n"
-        "      const j = await r.json();\n"
-        "      document.getElementById('st').innerText = 'State: ' + j.state;\n"
-        "    }\n"
-        "    async function setLed(v){\n"
-        "      await fetch('/api/led', {\n"
-        "        method: 'POST',\n"
-        "        headers: {'Content-Type':'application/json'},\n"
-        "        body: JSON.stringify({state:v})\n"
-        "      });\n"
-        "      refresh();\n"
-        "    }\n"
-        "    setInterval(refresh, 1000);\n"
-        "    refresh();\n"
-        "  </script>\n"
-        "</body>\n"
-        "</html>\n";
-
-    httpd_resp_set_type(req, "text/html");
-    httpd_resp_send(req, INDEX_HTML, HTTPD_RESP_USE_STRLEN);
-    return ESP_OK;
-}
-
-static void http_server_start(void)
-{
-    httpd_config_t config = HTTPD_DEFAULT_CONFIG();
-    ESP_ERROR_CHECK(httpd_start(&s_server, &config));
-    ESP_LOGI(TAG, "HTTP server started");
-
-    httpd_uri_t root = {
-        .uri      = "/",
-        .method   = HTTP_GET,
-        .handler  = root_get_handler,
-        .user_ctx = NULL
-    };
-
-    httpd_uri_t led_get = {
-        .uri      = "/api/led",
-        .method   = HTTP_GET,
-        .handler  = api_led_get,
-        .user_ctx = NULL
-    };
-
-    httpd_uri_t led_post = {
-        .uri      = "/api/led",
-        .method   = HTTP_POST,
-        .handler  = api_led_post,
-        .user_ctx = NULL
-    };
-
-    ESP_ERROR_CHECK(httpd_register_uri_handler(s_server, &root));
-    ESP_ERROR_CHECK(httpd_register_uri_handler(s_server, &led_get));
-    ESP_ERROR_CHECK(httpd_register_uri_handler(s_server, &led_post));
-
-    ESP_LOGI(TAG, "Routes registered: /  ,  GET/POST /api/led");
-}
-
-/* ===================== Wi-Fi STA connect + events ===================== */
-
-static void wifi_event_handler(void *arg,
-                               esp_event_base_t event_base,
-                               int32_t event_id,
-                               void *event_data)
-{
-    if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_START) {
-        ESP_LOGI(TAG, "WIFI_EVENT_STA_START -> esp_wifi_connect()");
-        ESP_ERROR_CHECK(esp_wifi_connect());
-        return;
-    }
-
-    if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_DISCONNECTED) {
-        if (s_retry < MAX_RETRY) {
-            s_retry++;
-            ESP_LOGW(TAG, "Disconnected. Retrying (%d/%d)...", s_retry, MAX_RETRY);
-            ESP_ERROR_CHECK(esp_wifi_connect());
-        } else {
-            ESP_LOGE(TAG, "Failed to connect after %d retries.", MAX_RETRY);
-        }
-        return;
-    }
-
-    if (event_base == IP_EVENT && event_id == IP_EVENT_STA_GOT_IP) {
-        ip_event_got_ip_t *event = (ip_event_got_ip_t *)event_data;
-        ESP_LOGI(TAG, "Got IP: " IPSTR, IP2STR(&event->ip_info.ip));
-
-        s_retry = 0;
-        xEventGroupSetBits(s_wifi_event_group, WIFI_CONNECTED_BIT);
-        return;
-    }
-}
-
-static void wifi_init_sta(void)
-{
-    s_wifi_event_group = xEventGroupCreate();
-
-    ESP_ERROR_CHECK(esp_netif_init());
-    ESP_ERROR_CHECK(esp_event_loop_create_default());
-    esp_netif_create_default_wifi_sta();
-
-    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
-    ESP_ERROR_CHECK(esp_wifi_init(&cfg));
-
-    ESP_ERROR_CHECK(esp_event_handler_register(WIFI_EVENT, ESP_EVENT_ANY_ID, &wifi_event_handler, NULL));
-    ESP_ERROR_CHECK(esp_event_handler_register(IP_EVENT, IP_EVENT_STA_GOT_IP, &wifi_event_handler, NULL));
-
-    wifi_config_t wifi_config = {0};
-    strncpy((char *)wifi_config.sta.ssid, WIFI_SSID, sizeof(wifi_config.sta.ssid));
-    strncpy((char *)wifi_config.sta.password, WIFI_PASS, sizeof(wifi_config.sta.password));
-
-    ESP_LOGI(TAG, "Configuring Wi-Fi STA: SSID='%s'", WIFI_SSID);
-
-    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
-    ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
-    ESP_ERROR_CHECK(esp_wifi_start());
-}
-
-/* ===================== app_main ===================== */
-
-void app_main(void)
-{
-    ESP_LOGI(TAG, "Lab D start: Wi-Fi + HTTP + LED control.");
-
-    // NVS init (required by Wi-Fi)
+void app_main(void) {
+    // 1. Inicializar NVS (indispensable para Wi-Fi)
     esp_err_t ret = nvs_flash_init();
     if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
         ESP_ERROR_CHECK(nvs_flash_erase());
-        ESP_ERROR_CHECK(nvs_flash_init());
+        ret = nvs_flash_init();
+    }
+    ESP_ERROR_CHECK(ret);
+
+    // 2. Conectar Wi-Fi usando tu función de laboratorio
+    ESP_LOGI(TAG, "Iniciando Wi-Fi...");
+    esp_err_t wifi_res = wifi_sta_connect(MI_SSID, MI_PASS, 30000);
+
+    if (wifi_res == ESP_OK) {
+        ESP_LOGI(TAG, "Wi-Fi Conectado. Iniciando MQTT...");
+        
+        // 3. Arrancar MQTT
+        mqtt_app_start(MI_BROKER);
     } else {
-        ESP_ERROR_CHECK(ret);
+        ESP_LOGE(TAG, "Error crítico: No se pudo conectar al Wi-Fi.");
     }
 
-    // Connect to Wi-Fi (STA)
-    wifi_init_sta();
-
-    // Wait for "got IP" (connected)
-    EventBits_t bits = xEventGroupWaitBits(
-        s_wifi_event_group,
-        WIFI_CONNECTED_BIT,
-        pdFALSE,
-        pdTRUE,
-        pdMS_TO_TICKS(30000)
-    );
-
-    if (!(bits & WIFI_CONNECTED_BIT)) {
-        ESP_LOGE(TAG, "Timeout waiting for Wi-Fi connection. Check SSID/PASS and 2.4 GHz.");
-        return;
+    // Heartbeat para saber que el sistema no se ha colgado
+    while (1) {
+        vTaskDelay(pdMS_TO_TICKS(10000));
+        ESP_LOGI(TAG, "Sistema activo...");
     }
+}
+```
+### MQTT CLIENT CODE FOR ESP1
+```bash
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <stdlib.h>
+#include "esp_log.h"
+#include "mqtt_client.h"
+#include "driver/gpio.h"
+#include "driver/adc.h"
+#include "driver/ledc.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 
-    // Start peripherals + HTTP
-    led_init();
-    http_server_start();
+static const char *TAG = "ESP2_TEAM_PAPU";
 
-    ESP_LOGI(TAG, "Open: http://<ESP_IP>/ from a device on the same network.");
+#define PIN_LED1 6  
+#define PIN_LED2 7  
+#define PIN_BTN1 5  
+#define PIN_BTN2 4  
+#define POT_CHANNEL ADC1_CHANNEL_0 
+
+#define LEDC_MODE LEDC_LOW_SPEED_MODE
+#define LEDC_RES LEDC_TIMER_12_BIT 
+
+#define TEAM_ID "teamPapu"
+#define TOPIC_SUB_POT   "ibero/" TEAM_ID "/esp1/potenciometer"
+#define TOPIC_SUB_LED1  "ibero/" TEAM_ID "/esp1/led1"
+#define TOPIC_SUB_LED2  "ibero/" TEAM_ID "/es1/led2"
+
+#define TOPIC_PUB_POT   "ibero/" TEAM_ID "/esp2/potenciometer"
+#define TOPIC_PUB_BTN1  "ibero/" TEAM_ID "/esp2/led1"
+#define TOPIC_PUB_BTN2  "ibero/" TEAM_ID "/esp2/led2"
+
+static esp_mqtt_client_handle_t client = NULL;
+
+int estado_global_led1 = 0;
+int estado_global_led2 = 0;
+int brillo_pot_recibido = 0;
+
+void refrescar_salidas_pwm() {
+    ledc_set_duty(LEDC_MODE, LEDC_CHANNEL_0, estado_global_led1 * brillo_pot_recibido);
+    ledc_update_duty(LEDC_MODE, LEDC_CHANNEL_0);
+    ledc_set_duty(LEDC_MODE, LEDC_CHANNEL_1, estado_global_led2 * brillo_pot_recibido);
+    ledc_update_duty(LEDC_MODE, LEDC_CHANNEL_1);
 }
 
-### Video
+void init_hw() {
+    gpio_config_t btn_cfg = {.pin_bit_mask=(1ULL<<PIN_BTN1)|(1ULL<<PIN_BTN2), .mode=GPIO_MODE_INPUT, .pull_up_en=GPIO_PULLUP_ENABLE};
+    gpio_config(&btn_cfg);
+    adc1_config_width(ADC_WIDTH_BIT_12);
+    adc1_config_channel_atten(POT_CHANNEL, ADC_ATTEN_DB_12);
+    ledc_timer_config_t timer = {.speed_mode=LEDC_MODE, .timer_num=LEDC_TIMER_0, .duty_resolution=LEDC_RES, .freq_hz=5000, .clk_cfg=LEDC_AUTO_CLK};
+    ledc_timer_config(&timer);
+    ledc_channel_config_t l1 = {.channel=LEDC_CHANNEL_0, .gpio_num=PIN_LED1, .speed_mode=LEDC_MODE, .timer_sel=LEDC_TIMER_0, .duty=0};
+    ledc_channel_config(&l1);
+    ledc_channel_config_t l2 = {.channel=LEDC_CHANNEL_1, .gpio_num=PIN_LED2, .speed_mode=LEDC_MODE, .timer_sel=LEDC_TIMER_0, .duty=0};
+    ledc_channel_config(&l2);
+}
 
-[MQTT](https://youtu.be/hpEJd5n-EJY)
+void sensors_task(void *pvParameters) {
+    int last_pot = -1, l_b1 = 1, l_b2 = 1;
+    while (1) {
+        if (client) {
+            int b1 = gpio_get_level(PIN_BTN1), b2 = gpio_get_level(PIN_BTN2);
+            if (b1 == 0 && l_b1 == 1) esp_mqtt_client_publish(client, TOPIC_PUB_BTN1, "toggle", 0, 0, 0);
+            l_b1 = b1;
+            if (b2 == 0 && l_b2 == 1) esp_mqtt_client_publish(client, TOPIC_PUB_BTN2, "toggle", 0, 0, 0);
+            l_b2 = b2;
+            int pot = adc1_get_raw(POT_CHANNEL);
+            if (abs(pot - last_pot) > 60) {
+                char s[10]; sprintf(s, "%d", pot);
+                esp_mqtt_client_publish(client, TOPIC_PUB_POT, s, 0, 0, 0);
+                last_pot = pot;
+            }
+        }
+        vTaskDelay(pdMS_TO_TICKS(50));
+    }
+}
+
+static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data) {
+    esp_mqtt_event_handle_t event = (esp_mqtt_event_handle_t) event_data;
+    if (event_id == MQTT_EVENT_CONNECTED) {
+        esp_mqtt_client_subscribe(client, TOPIC_SUB_POT, 0);
+        esp_mqtt_client_subscribe(client, TOPIC_SUB_LED1, 0);
+        esp_mqtt_client_subscribe(client, TOPIC_SUB_LED2, 0);
+    } else if (event_id == MQTT_EVENT_DATA) {
+        char *data = strndup(event->data, event->data_len);
+        if (strncmp(event->topic, TOPIC_SUB_POT, event->topic_len) == 0) {
+            brillo_pot_recibido = atoi(data);
+        } else if (strncmp(event->topic, TOPIC_SUB_LED1, event->topic_len) == 0) {
+            estado_global_led1 = !estado_global_led1;
+        } else if (strncmp(event->topic, TOPIC_SUB_LED2, event->topic_len) == 0) {
+            estado_global_led2 = !estado_global_led2;
+        }
+        refrescar_salidas_pwm();
+        free(data);
+    }
+}
+
+void mqtt_app_start(const char *broker_uri) {
+    init_hw();
+    xTaskCreate(sensors_task, "sensors", 4096, NULL, 5, NULL);
+    esp_mqtt_client_config_t cfg = { .broker.address.uri = broker_uri };
+    client = esp_mqtt_client_init(&cfg);
+    esp_mqtt_client_register_event(client, ESP_EVENT_ANY_ID, mqtt_event_handler, NULL);
+    esp_mqtt_client_start(client);
+}
+```
+
+### MQTT Change for ESP2:
+```bash
+#define TOPIC_SUB_POT   "ibero/" TEAM_ID "/esp2/potenciometer"
+#define TOPIC_SUB_LED1  "ibero/" TEAM_ID "/esp2/led1"
+#define TOPIC_SUB_LED2  "ibero/" TEAM_ID "/esp2/led2"
+
+#define TOPIC_PUB_POT   "ibero/" TEAM_ID "/esp1/potenciometer"
+#define TOPIC_PUB_BTN1  "ibero/" TEAM_ID "/esp1/led1"
+#define TOPIC_PUB_BTN2  "ibero/" TEAM_ID "/esp1/led2"
+```
+
+#### Video of it working 
+<!-- Ajuste para mostrar correctamente el video Shorts de YouTube como embed -->
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/j12o1w3M6sM"
+title="YouTube video player"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen>
+</iframe>
