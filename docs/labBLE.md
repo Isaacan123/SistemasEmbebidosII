@@ -20,6 +20,8 @@ During this laboratory, the following procedure was successfully executed and ve
 
 ---
 
+## CODE
+
 ```c
 #include <stdio.h>
 #include <string.h>
@@ -208,18 +210,17 @@ void app_main(void)
 
 ## 2) Evidence Required (Screenshots)
 
-### 2.1 Serial Monitor (BLE Startup)
-*Log showing BLE initialization and advertising messages upon boot.*
+### Running the program BLE 
 ![Service and Characteristic](recursos/imgs/ble2.jpeg)
 
 
 
-### 2.2 Windows PC Discovery
-*Bluetooth LE Explorer showing the discovered `ESP32C6_BLE_DEMO` device in the scan list.*
+### searching BLE
+![Bluetooth LE Explorer Discovery](recursos/imgs/ble3.png)
 ![Bluetooth LE Explorer Discovery](recursos/imgs/ble1.jpeg)
 
-### 2.3 Service and Characteristic
-*Explorer interface displaying the custom service (`0x00FF`) and characteristic (`0xFF01`).*
+
+### 2.3 Conecting the BLE 
 ![Serial Monitor BLE Startup](recursos/imgs/BLE.jpeg)
 
 ---
