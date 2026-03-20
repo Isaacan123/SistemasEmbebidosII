@@ -1,0 +1,1082 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../gitcmds/">
+      
+      
+        <link rel="next" href="../labBLE/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>MQTT LAB PT1 - Plantilla para Documentación</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mqtt-lab-pt1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Plantilla para Documentación" class="md-header__button md-logo" aria-label="Plantilla para Documentación" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Plantilla para Documentación
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MQTT LAB PT1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Plantilla para Documentación" class="md-nav__button md-logo" aria-label="Plantilla para Documentación" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Plantilla para Documentación
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentación del Proyecto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LAB05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MQTT LAB pt2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 01 – FreeRTOS Task Creation and Scheduling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 02 – FreeRTOS Multi-Tasking: Queues, Mutexes and Structs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LAB 03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comandos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Encabezados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ejemplo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Ejemplo de Documentación del Proyecto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitcmds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚀 Comandos básicos de Git (primeros pasos)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MQTT LAB PT1
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MQTT LAB PT1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#team" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Team
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-activity-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) Activity Goals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Materials
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labBLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Log: BLE Configuration on ESP32-C6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#team" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Team
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-activity-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) Activity Goals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Materials
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="mqtt-lab-pt1">MQTT LAB PT1</h1>
+<h2 id="team">Team</h2>
+<p>Yahir Gil Mendoza</p>
+<p>Isaac Aleman</p>
+<p>Pablo Eduardo López Manzano</p>
+<h2 id="1-activity-goals">1) Activity Goals</h2>
+<ul>
+<li>Interface a potentiometer with the ESP32-C6 ADC (Analog-to-Digital Converter) to capture manual control inputs.</li>
+</ul>
+<p>*Develop a non-blocking execution loop to ensure simultaneous sensor reading and MQTT message handling.</p>
+<ul>
+<li>Generate a precise PWM (Pulse Width Modulation) signal to regulate the motor speed through a dedicated driver.</li>
+</ul>
+<p>*Establish a secure and stable connection between the ESP32-C6 and an MQTT broker Mouitto via Wi-Fi 6.</p>
+<ul>
+<li>English: Publish real-time motor speed telemetry to a specific topic for remote monitoring.</li>
+</ul>
+<h2 id="materials">Materials</h2>
+<ul>
+<li>ESP32 C6 </li>
+<li>Cable for data </li>
+<li>Protoboard</li>
+<li>jumpers </li>
+<li>H bridge</li>
+<li>Motor DC </li>
+</ul>
+<h2 id="analysis">Analysis</h2>
+<h3 id="code-1">Code 1</h3>
+<ul>
+<li>The code has peripheral configuration the code utilizes the LEDC  peripheral of the ESP32-C6 to generate a high-frequency PWM signal, ensuring smooth motor rotation without audible noise.</li>
+</ul>
+<p>After the data resolution and mapping since the ESP32-C6 features a 12-bit ADC, the input signal is processed through a mapping function to match the 8-bit resolution of the PWM output
+``</p>
+<h1 id="include">include <stdio.h></h1>
+<h1 id="include_1">include <string.h></h1>
+<h1 id="include_2">include <stdlib.h></h1>
+<h1 id="include-freertosfreertosh">include "freertos/FreeRTOS.h"</h1>
+<h1 id="include-freertostaskh">include "freertos/task.h"</h1>
+<h1 id="include-freertosevent_groupsh">include "freertos/event_groups.h"</h1>
+<h1 id="include-esp_systemh">include "esp_system.h"</h1>
+<h1 id="include-esp_wifih">include "esp_wifi.h"</h1>
+<h1 id="include-esp_eventh">include "esp_event.h"</h1>
+<h1 id="include-esp_logh">include "esp_log.h"</h1>
+<h1 id="include-esp_netifh">include "esp_netif.h"</h1>
+<h1 id="include-nvs_flashh">include "nvs_flash.h"</h1>
+<h1 id="include-mqtt_clienth">include "mqtt_client.h"</h1>
+<h1 id="include-driverledch">include "driver/ledc.h"</h1>
+<h1 id="include-drivergpioh">include "driver/gpio.h"</h1>
+<h1 id="include-esp_adcadc_oneshoth">include "esp_adc/adc_oneshot.h"</h1>
+<h1 id="define-wifi_ssid-iphone">define WIFI_SSID      "iPhone"</h1>
+<h1 id="define-wifi_pass-12345678">define WIFI_PASS      "12345678"</h1>
+<h1 id="define-team_id-teampapu">define TEAM_ID    "Teampapu"</h1>
+<h1 id="define-device_id-c6_01">define DEVICE_ID  "c6_01"</h1>
+<h1 id="define-topic_cmd-iberoei2-team_id-device_id-cmd">define TOPIC_CMD   "ibero/ei2/" TEAM_ID "/" DEVICE_ID "/cmd"</h1>
+<h1 id="define-topic_tlm-iberoei2-team_id-device_id-telemetry">define TOPIC_TLM   "ibero/ei2/" TEAM_ID "/" DEVICE_ID "/telemetry"</h1>
+<h1 id="define-topic_stat-iberoei2-team_id-device_id-status">define TOPIC_STAT  "ibero/ei2/" TEAM_ID "/" DEVICE_ID "/status"</h1>
+<p>// CORRECCIÓN 1: Nombres consistentes y emparejados con tu MQTT Explorer</p>
+<h1 id="define-topic_motor-iberoei2motor">define TOPIC_MOTOR "ibero/ei2/motor"</h1>
+<h1 id="define-topic_speed-iberoei2speed">define TOPIC_SPEED "ibero/ei2/speed"</h1>
+<h1 id="define-ena_gpio-4">define ENA_GPIO   4</h1>
+<h1 id="define-in1_gpio-18">define IN1_GPIO   18</h1>
+<h1 id="define-in2_gpio-19">define IN2_GPIO   19</h1>
+<h1 id="define-temp_adc_channel-adc_channel_0">define TEMP_ADC_CHANNEL ADC_CHANNEL_0</h1>
+<h1 id="define-hum_adc_channel-adc_channel_1">define HUM_ADC_CHANNEL  ADC_CHANNEL_1</h1>
+<p>static EventGroupHandle_t wifi_event_group;</p>
+<h1 id="define-wifi_connected_bit-bit0">define WIFI_CONNECTED_BIT BIT0</h1>
+<p>static const char *TAG = "IBERO_MQTT";</p>
+<p>static esp_mqtt_client_handle_t client = NULL;</p>
+<p>static int current_speed = 0;
+static int motor_state = 0;</p>
+<p>static void wifi_event_handler(void<em> arg,
+                               esp_event_base_t event_base,
+                               int32_t event_id,
+                               void</em> event_data)
+{
+    if (event_base == WIFI_EVENT &amp;&amp; event_id == WIFI_EVENT_STA_START)
+        esp_wifi_connect();
+    else if (event_base == WIFI_EVENT &amp;&amp; event_id == WIFI_EVENT_STA_DISCONNECTED)
+        esp_wifi_connect();
+    else if (event_base == IP_EVENT &amp;&amp; event_id == IP_EVENT_STA_GOT_IP)
+        xEventGroupSetBits(wifi_event_group, WIFI_CONNECTED_BIT);
+}</p>
+<p>void wifi_init_sta(void)
+{
+    wifi_event_group = xEventGroupCreate();</p>
+<div class="language-text highlight"><pre><span></span><code>esp_netif_init();
+esp_event_loop_create_default();
+esp_netif_create_default_wifi_sta();
+
+wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+esp_wifi_init(&amp;cfg);
+
+esp_event_handler_instance_register(WIFI_EVENT,
+                                    ESP_EVENT_ANY_ID,
+                                    &amp;wifi_event_handler,
+                                    NULL,
+                                    NULL);
+
+esp_event_handler_instance_register(IP_EVENT,
+                                    IP_EVENT_STA_GOT_IP,
+                                    &amp;wifi_event_handler,
+                                    NULL,
+                                    NULL);
+
+wifi_config_t wifi_config = {
+    .sta = {
+        .ssid = WIFI_SSID,
+        .password = WIFI_PASS
+    }
+};
+
+esp_wifi_set_mode(WIFI_MODE_STA);
+esp_wifi_set_config(WIFI_IF_STA, &amp;wifi_config);
+esp_wifi_start();
+
+xEventGroupWaitBits(wifi_event_group,
+                    WIFI_CONNECTED_BIT,
+                    pdFALSE,
+                    pdFALSE,
+                    portMAX_DELAY);
+</code></pre></div>
+<p>}</p>
+<p>static void motor_init()
+{
+    gpio_set_direction(IN1_GPIO, GPIO_MODE_OUTPUT);
+    gpio_set_direction(IN2_GPIO, GPIO_MODE_OUTPUT);</p>
+<div class="language-text highlight"><pre><span></span><code>ledc_timer_config_t timer = {
+    .speed_mode = LEDC_LOW_SPEED_MODE,
+    .timer_num = LEDC_TIMER_0,
+    .duty_resolution = LEDC_TIMER_8_BIT,
+    .freq_hz = 5000,
+    .clk_cfg = LEDC_AUTO_CLK
+};
+
+ledc_timer_config(&amp;timer);
+
+ledc_channel_config_t channel = {
+    .gpio_num = ENA_GPIO,
+    .speed_mode = LEDC_LOW_SPEED_MODE,
+    .channel = LEDC_CHANNEL_0,
+    .timer_sel = LEDC_TIMER_0,
+    .duty = 0
+};
+
+ledc_channel_config(&amp;channel);
+</code></pre></div>
+<p>}</p>
+<p>static void set_motor_speed(int speed)
+{
+    ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0, speed);
+    ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0);
+}</p>
+<p>static void motor_forward()
+{
+    gpio_set_level(IN1_GPIO, 1);
+    gpio_set_level(IN2_GPIO, 0);
+}</p>
+<p>static void motor_stop()
+{
+    gpio_set_level(IN1_GPIO, 0);
+    gpio_set_level(IN2_GPIO, 0);
+    set_motor_speed(0);
+}</p>
+<p>static void sensor_task(void *pv)
+{
+    adc_oneshot_unit_handle_t adc_handle;</p>
+<div class="language-text highlight"><pre><span></span><code>adc_oneshot_unit_init_cfg_t init_config = {
+    .unit_id = ADC_UNIT_1,
+};
+
+adc_oneshot_new_unit(&amp;init_config, &amp;adc_handle);
+
+adc_oneshot_chan_cfg_t config = {
+    .bitwidth = ADC_BITWIDTH_DEFAULT,
+    .atten = ADC_ATTEN_DB_12,
+};
+
+adc_oneshot_config_channel(adc_handle, TEMP_ADC_CHANNEL, &amp;config);
+adc_oneshot_config_channel(adc_handle, HUM_ADC_CHANNEL, &amp;config);
+
+int last_temp = -100;
+int last_hum = -100;
+
+while (1)
+{
+    int raw_temp;
+    int raw_hum;
+
+    adc_oneshot_read(adc_handle, TEMP_ADC_CHANNEL, &amp;raw_temp);
+    adc_oneshot_read(adc_handle, HUM_ADC_CHANNEL, &amp;raw_hum);
+
+    int temperature = (raw_temp * 50) / 4095;
+    int humidity = (raw_hum * 100) / 4095;
+
+    if (abs(temperature - last_temp) &gt;= 3 || abs(humidity - last_hum) &gt;= 3)
+    {
+        printf(&quot;Temperatura: %d °C\n&quot;, temperature);
+        printf(&quot;Humedad: %d %%\n&quot;, humidity);
+
+        char msg[64];
+        sprintf(msg, &quot;temp:%d,hum:%d&quot;, temperature, humidity);
+
+        if (client != NULL)
+            esp_mqtt_client_publish(client, TOPIC_TLM, msg, 0, 1, 0);
+
+        last_temp = temperature;
+        last_hum = humidity;
+    }
+
+    vTaskDelay(pdMS_TO_TICKS(300));
+}
+</code></pre></div>
+<p>}</p>
+<p>static void mqtt_event_handler(void <em>handler_args,
+                               esp_event_base_t base,
+                               int32_t event_id,
+                               void </em>event_data)
+{
+    esp_mqtt_event_handle_t event = event_data;</p>
+<div class="language-text highlight"><pre><span></span><code>switch (event-&gt;event_id)
+{
+
+case MQTT_EVENT_CONNECTED:
+
+    printf(&quot;MQTT Conectado\n&quot;);
+
+    esp_mqtt_client_subscribe(client, TOPIC_CMD, 1);
+    esp_mqtt_client_subscribe(client, TOPIC_MOTOR, 1);
+    esp_mqtt_client_subscribe(client, TOPIC_SPEED, 1);
+
+    esp_mqtt_client_publish(client, TOPIC_STAT, &quot;online&quot;, 0, 1, 0);
+
+    break;
+
+case MQTT_EVENT_DATA:
+
+    printf(&quot;Topic=%.*s Data=%.*s\n&quot;,
+           event-&gt;topic_len, event-&gt;topic,
+           event-&gt;data_len, event-&gt;data);
+
+    if (strncmp(event-&gt;topic, TOPIC_MOTOR, event-&gt;topic_len) == 0)
+    {
+        if (strncmp(event-&gt;data, &quot;ON&quot;, event-&gt;data_len) == 0 || strncmp(event-&gt;data, &quot;on&quot;, event-&gt;data_len) == 0)
+        {
+            motor_state = 1;
+            motor_forward();
+            set_motor_speed(current_speed);
+        }
+        else if (strncmp(event-&gt;data, &quot;OFF&quot;, event-&gt;data_len) == 0 || strncmp(event-&gt;data, &quot;off&quot;, event-&gt;data_len) == 0)
+        {
+            motor_state = 0;
+            motor_stop();
+        }
+    }
+
+    if (strncmp(event-&gt;topic, TOPIC_SPEED, event-&gt;topic_len) == 0)
+    {
+        int speed = atoi(event-&gt;data);
+
+        if (speed &gt;= 0 &amp;&amp; speed &lt;= 255)
+        {
+            current_speed = speed;
+
+            if (motor_state)
+                set_motor_speed(speed);
+        }
+    }
+
+    break;
+
+case MQTT_EVENT_DISCONNECTED:
+
+    printf(&quot;MQTT Desconectado\n&quot;);
+
+    break;
+
+default:
+    break;
+}
+</code></pre></div>
+<p>}</p>
+<p>void mqtt_app_start(const char *broker_uri)
+{
+    motor_init();</p>
+<div class="language-text highlight"><pre><span></span><code>xTaskCreate(sensor_task, &quot;sensor_task&quot;, 4096, NULL, 5, NULL);
+
+esp_mqtt_client_config_t cfg = {
+    .broker.address.uri = broker_uri,
+    .session.keepalive = 30
+};
+
+client = esp_mqtt_client_init(&amp;cfg);
+
+esp_mqtt_client_register_event(client,
+                               ESP_EVENT_ANY_ID,
+                               mqtt_event_handler,
+                               NULL);
+
+esp_mqtt_client_start(client);
+</code></pre></div>
+<p>}</p>
+<p>void app_main(void)
+{
+    nvs_flash_init();
+    wifi_init_sta();
+    mqtt_app_start("mqtt://test.mosquitto.org:1883");
+}
+``</p>
+<ul>
+<li>The speed value is converted from an integer to a string using dtostrf() before being published to the MQTT broker to allow real-time dashboard visualization.</li>
+</ul>
+<h2 id="results">Results</h2>
+<ul>
+<li>First we have the next circuit </li>
+</ul>
+<p><img alt="Diagrama del sistema" src="../recursos/imgs/mqtt1.jpeg" /></p>
+<ul>
+<li>Our code runs and the page for MQTT</li>
+</ul>
+<p><img alt="Diagrama del sistema" src="../recursos/imgs/mqtt2.jpeg" /></p>
+<ul>
+<li>Mqtt runs </li>
+</ul>
+<p><img alt="Diagrama del sistema" src="../recursos/imgs/mqtt3.jpeg" /></p>
+<h3 id="video">Video</h3>
+<p><a href="https://youtu.be/hpEJd5n-EJY">MQTT</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "content.tooltips"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
