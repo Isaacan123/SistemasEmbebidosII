@@ -20,7 +20,7 @@ During this laboratory, the following procedure was successfully executed and ve
 
 ---
 
-``
+```c
 #include <stdio.h>
 #include <string.h>
 #include "freertos/FreeRTOS.h"
@@ -203,14 +203,16 @@ void app_main(void)
     ESP_ERROR_CHECK(esp_ble_gatt_set_local_mtu(500));
 
     ESP_LOGI(TAG, "BLE initialization complete");
-}
-``
+}   
+```
 
 ## 2) Evidence Required (Screenshots)
 
 ### 2.1 Serial Monitor (BLE Startup)
 *Log showing BLE initialization and advertising messages upon boot.*
-![Serial Monitor BLE Startup](recursos/imgs/BLE.jpeg)
+![Service and Characteristic](recursos/imgs/ble2.jpeg)
+
+
 
 ### 2.2 Windows PC Discovery
 *Bluetooth LE Explorer showing the discovered `ESP32C6_BLE_DEMO` device in the scan list.*
@@ -218,19 +220,19 @@ void app_main(void)
 
 ### 2.3 Service and Characteristic
 *Explorer interface displaying the custom service (`0x00FF`) and characteristic (`0xFF01`).*
-![Service and Characteristic](recursos/imgs/ble2.jpeg)
+![Serial Monitor BLE Startup](recursos/imgs/BLE.jpeg)
 
 ---
-
 ## 3) Technical Explanations
 
 **What is the difference between a central and a peripheral?**
-* A **Peripheral** device advertises its presence and provides data or services to others (in this lab, our ESP32-C6 acting as the data provider). 
-* A **Central** device scans for advertising peripherals, initiates connections, and reads/writes the data (in this lab, the Windows PC running Bluetooth LE Explorer).
+* **Peripheral:** Broadcasts its presence and offers data or services (e.g., the ESP32-C6).
+* **Central:** Scans for peripherals, establishes the connection, and interacts with the data (e.g., the Windows PC).
+
 
 **What is the difference between a service and a characteristic?**
-* A **Service** is a logical container or collection of related data and behaviors (think of it as a folder). For example, a "Heart Rate Service". In our lab, this is UUID `0x00FF`.
-* A **Characteristic** is the actual data point within that service (think of it as a specific file inside the folder) that can be read, written to, or notified. In our lab, UUID `0xFF01` is the characteristic holding the string value.
+* **Service:** A logical grouping of related data points, acting as a container (e.g., UUID `0x00FF`).
+* **Characteristic:** The specific variable within a service that holds the actual readable or writable value (e.g., UUID `0xFF01`).
 
 **Why is BLE suitable for this type of application?**
-* BLE (Bluetooth Low Energy) is specifically optimized for very low power consumption. It is ideal for IoT devices (like the ESP32) because it allows them to run on batteries for long periods while periodically transmitting small amounts of data (like sensor readings, state changes, or short messages) without the heavy energy overhead of Wi-Fi or Classic Bluetooth.
+* Its ultra-low power architecture is perfect for IoT devices. It efficiently transmits small data payloads periodically, maximizing battery life compared to Wi-Fi or Classic Bluetooth.
